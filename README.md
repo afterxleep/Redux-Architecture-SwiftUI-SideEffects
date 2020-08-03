@@ -1,7 +1,7 @@
-# Redux Architecture on iOS (Part 2)
+# Redux Architecture on iOS: Side Effects, Middleware & Combine
 
 This is the companion app to the Redux Architecture on SwitUI tutorial available at.  
-https://danielbernal.co/redux-like-architecture-with-swiftui-part2/
+https://danielbernal.co/redux-like-architecture-with-swiftui-middleware/
 
 What we did in the second part.:
 
