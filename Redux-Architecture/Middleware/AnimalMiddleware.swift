@@ -10,17 +10,19 @@ import Combine
 
 func animalMiddleware(service: AnimalService) -> Middleware<AppState, AppAction> {
     
-    var cancellables: Set<AnyCancellable> = []
-    
-    return { state, action, dispatch in
+    return { state, action in
         switch action {
-            case .animal(action: .fetchAnimal):
-                service.generateAnimalInTheFuture()
-                    .sink { dispatch( .animal(action: .setCurrentAnimal(animal: $0))) }
-                    .store(in: &cancellables)
+            
+            case .animal(.fetchAnimal):
+                return service.generateAnimalInTheFuture()
+                    .subscribe(on: DispatchQueue.main)
+                    .map { AppAction.animal(action: .setCurrentAnimal(animal: $0 )) }
+                    .eraseToAnyPublisher()
+                
             default:
                 break
             }
-        }
-    
+        
+        return Empty().eraseToAnyPublisher()
+    }
 }

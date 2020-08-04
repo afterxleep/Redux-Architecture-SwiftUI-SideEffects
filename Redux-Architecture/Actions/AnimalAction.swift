@@ -1,6 +1,6 @@
 //
 //  AnimalAction.swift
-//  Redux-Architecture-Part1
+//  Redux-Architecture
 //
 //  Created by Daniel Bernal on 8/2/20.
 //
